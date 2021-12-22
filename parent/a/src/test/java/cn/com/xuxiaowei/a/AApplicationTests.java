@@ -1,10 +1,10 @@
-package cn.com.xuxiaowei.parent;
+package cn.com.xuxiaowei.a;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ParentApplicationTests {
+class AApplicationTests {
 
     @Test
     void contextLoads() {

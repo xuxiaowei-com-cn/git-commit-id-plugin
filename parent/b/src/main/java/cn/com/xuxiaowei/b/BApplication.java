@@ -1,13 +1,13 @@
-package cn.com.xuxiaowei.parent;
+package cn.com.xuxiaowei.b;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ParentApplication {
+public class BApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ParentApplication.class, args);
+        SpringApplication.run(BApplication.class, args);
     }
 
 }
