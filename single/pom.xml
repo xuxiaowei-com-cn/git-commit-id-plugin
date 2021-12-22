@@ -57,6 +57,48 @@
                     </excludes>
                 </configuration>
             </plugin>
+
+            <!-- https://mvnrepository.com/artifact/pl.project13.maven/git-commit-id-plugin -->
+            <!-- 使用插件文档（配置、属性等的所有详细信息...）：https://github.com/git-commit-id/git-commit-id-maven-plugin/blob/master/docs/using-the-plugin.md -->
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>4.9.10</version>
+                <executions>
+                    <execution>
+                        <id>get-the-git-infos</id>
+                        <goals>
+                            <!-- 父子项目必须添加 -->
+                            <goal>revision</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- 父子项目必须添加 -->
+                    <generateGitPropertiesFile>true</generateGitPropertiesFile>
+                    <offline>true</offline>
+                    <!-- 输出详细内容 -->
+                    <verbose>true</verbose>
+                    <!-- 日期格式化时区 -->
+                    <dateFormatTimeZone>${user.timezone}</dateFormatTimeZone>
+                    <!-- 日期格式化 -->
+                    <dateFormat>yyyy-MM-dd HH:mm:ss</dateFormat>
+                    <!-- 数据格式 -->
+                    <format>json</format>
+                    <!-- 配置文件 -->
+                    <generateGitPropertiesFilename>
+                        ${project.build.outputDirectory}/git.json
+                    </generateGitPropertiesFilename>
+                    <!-- 忽略 -->
+                    <excludeProperties>
+                        <!-- 提交消息的原始正文（未包装的主题和正文） -->
+                        <excludeProperty>git.commit.message.full</excludeProperty>
+                        <!-- 表示提交消息的主题 - 可能不适合文件名 -->
+                        <excludeProperty>git.commit.message.short</excludeProperty>
+                    </excludeProperties>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
